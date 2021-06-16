@@ -12,7 +12,7 @@ LINKER_FLAGS = \
 .PHONY: all
 
 all:
-	time gcc $(COMPILER_FLAGS) $(LINKER_FLAGS) src/macrotone.c -o bin/macrotone
+	time gcc $(COMPILER_FLAGS) $(LINKER_FLAGS) src/_unity.c -o bin/macrotone
 
 run: all
 	./bin/macrotone
