@@ -1,0 +1,18 @@
+COMPILER_FLAGS = \
+	-I/usr/local/opt/sdl2/include \
+	-std=c99 \
+	-ggdb3 -Og -Wall -Werror -Wextra -pedantic \
+	-Wno-unused-parameter \
+	-D_FORTIFY_SOURCE=2
+
+LINKER_FLAGS = \
+	-I/usr/local/opt/sdl2/lib \
+	-lsdl2
+
+.PHONY: all
+
+all:
+	time gcc $(COMPILER_FLAGS) $(LINKER_FLAGS) src/macrotone.c -o bin/macrotone
+
+run: all
+	./bin/macrotone
