@@ -32,5 +32,5 @@ typedef uint64 u64;
 
 typedef float real32;
 typedef double real64;
-typedef real32 f32;
-typedef real64 f64;
+typedef real32 r32;
+typedef real64 r64;
