@@ -14,7 +14,7 @@
 
 void audio_update_state(AudioState *audio_state) {
   audio_state->idx_last_sample++;
-  audio_state->duration_remaining -= 1.0f / (real64)AUDIO_SAMPLE_RATE;
+  audio_state->duration_remaining -= 1000.0f / (real64)AUDIO_SAMPLE_RATE;
 }
 
 
@@ -61,7 +61,7 @@ void audio_fill_buffer(void *userdata, unsigned char *raw_buffer, int n_bytes) {
 void audio_play_note_blocking(AudioState *audio_state, Pitch pitch, Seconds duration) {
   audio_state->pitch = pitch;
   audio_state->duration_remaining = duration;
-  SDL_Delay(1000);
+  SDL_Delay(duration);
 }
 
 

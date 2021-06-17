@@ -13,10 +13,9 @@ typedef real64 Pitch;
 typedef real64 Seconds;
 
 real64 const THEORY_A_HZ = 440.0f;
-real64 const THEORY_RATIO_FIFTH = 3.0f / 2.0f;
 
 /*!
-  Fills `pitches` with some pitches.
-  NOTE: `pitches` starts at index 1, `pitches[0]` should be discarded.
+  Fills `pitches` with a 12-tone Pythagorean temperament.
+  Returns the number of pitches put into `pitches`.
 */
-void get_pitches(Pitch pitches[], uint32 const pitches_capacity);
+uint32 make_pythagorean_scale(Pitch pitches[], uint32 const pitches_capacity, Pitch base_note);

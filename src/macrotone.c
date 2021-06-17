@@ -15,9 +15,10 @@
 void run_main_loop(bool32 *should_stop, AudioState *audio_state) {
   uint32 const pitches_capacity = 128;
   Pitch pitches[pitches_capacity];
-  get_pitches(pitches, pitches_capacity);
-  audio_play_note_blocking(audio_state, pitches[1], 1.0f);
-  audio_play_note_blocking(audio_state, pitches[5], 1.0f);
+  uint32 n_pitches = make_pythagorean_scale(pitches, pitches_capacity, THEORY_A_HZ / 2.0f);
+  for (uint32 idx = 0; idx < n_pitches; idx++) {
+    audio_play_note_blocking(audio_state, pitches[idx], 500.0f);
+  }
   SDL_Delay(3000);
 }
 
