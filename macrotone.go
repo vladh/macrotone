@@ -31,7 +31,7 @@ func main() {
   defer audio.Destroy()
 
   // Start playing audio
-	sdl.PauseAudio(false)
+  sdl.PauseAudio(false)
 
   for {
     runMainLoop(&audioState)
