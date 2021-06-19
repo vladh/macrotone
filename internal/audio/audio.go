@@ -28,7 +28,7 @@ var gAudioState *AudioState
 
 const (
   AUDIO_SAMPLE_RATE = 44100
-  AUDIO_AMPLITUDE = 32768
+  AUDIO_AMPLITUDE = 28000
 )
 
 
@@ -89,17 +89,17 @@ func Init(audioState *AudioState) error {
   gAudioState = audioState
 
   targetSpec := sdl.AudioSpec{
-		Freq: AUDIO_SAMPLE_RATE,
-		Format: sdl.AUDIO_S16SYS,
-		Channels: 1,
-		Samples: 2048,
-		Callback: sdl.AudioCallback(C.makeSine),
-	}
+    Freq: AUDIO_SAMPLE_RATE,
+    Format: sdl.AUDIO_S16SYS,
+    Channels: 1,
+    Samples: 2048,
+    Callback: sdl.AudioCallback(C.makeSine),
+  }
 
   var actualSpec sdl.AudioSpec;
   if err := sdl.OpenAudio(&targetSpec, &actualSpec); err != nil {
-		return err
-	}
+    return err
+  }
 
   // NOTE: We would normally check that targetSpec and actualSpec are the same, but
   // gl-sdl2 adds some calculated fields which won't be equal, so whatever.
