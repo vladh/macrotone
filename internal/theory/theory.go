@@ -5,7 +5,7 @@
 */
 
 /*
-This file contains various functions to construct musical tonal systems “from scratch”.
+This file contains various functions to construct musical tuning systems “from scratch”.
 This includes deriving our Western pitch set from fifths using the Pythagorean method
 and continues from there.
 
