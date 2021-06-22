@@ -1,3 +1,9 @@
+/*
+  macrotone
+  Copyright (C) 2021 Vlad-Stefan Harbuz <vlad@vladh.net>
+  GNU General Public License v3 (https://www.gnu.org/licenses). Absolutely no warranty.
+*/
+
 package audio
 
 /*
@@ -8,6 +14,7 @@ void makeSine(void *userdata, uint8 *stream, int len);
 import "C"
 
 import (
+  "fmt"
   "math"
   "unsafe"
 
@@ -74,6 +81,7 @@ func makeSine(userdata *C.void, rawBuffer *C.uint8, nCBytes C.int) {
 
 
 func PlayNoteBlocking(audioState *AudioState, pitchHz float64, duration float64) {
+  fmt.Printf("-> %f\n", pitchHz)
   audioState.pitchHz = pitchHz
   audioState.msRemaining = duration
   sdl.Delay(uint32(duration))
