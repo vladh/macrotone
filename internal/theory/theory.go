@@ -33,7 +33,7 @@ func MakePythagoreanIntRatio(i float64) (float64, float64) {
     * if i < 0, we choose p such that 2^p is the smallest value such that 2^p > 3^|i|
   */
 
-  // For i = 0, the interval is simply the unisom
+  // For i = 0, the interval is simply the unison
   if i == 0 {
     return 1, 1
   }
